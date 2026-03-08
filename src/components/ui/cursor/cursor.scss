@@ -1,0 +1,28 @@
+.cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #f5f1eb;
+    pointer-events: none;
+    z-index: 1000;
+    will-change: transform;
+}
+
+.cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(circle, rgba(241, 129, 31, 0.2),
+            rgba(196, 107, 31, 0.06));
+    filter: blur(60px);
+    opacity: 0.9;
+    will-change: transform;
+}

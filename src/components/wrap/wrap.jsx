@@ -12,7 +12,7 @@ export default function WrapSpeed() {
         const audio = new Audio('/Recording.mp3');
         audio.loop = true;
         audio.muted = true;
-        audio.volume = 0.75;
+        audio.volume = 1;
         audio.preload = 'auto';
         audio.load();
         audioRef.current = audio;
