@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.wrap-wrap {
+    position: fixed;
+    overflow: hidden;
+    inset: 0;
+}
+
+.wrap-title {
+    font-family: "Audiowide", sans-serif;
+    font-weight: 24;
+    color: #eed6fe;
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    user-select: none;
+    pointer-events: none;
+}
+
+.wrap-desc {
+    font-size: 0.7rem;
+    margin: 6px 0 0;
+}
+
+.wrap-canvas {
+    position: fixed;
+    inset: 0;
+    background: black;
+    display: block;
+    z-index: 0;
+}
+
+.sound-toggle {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+
+    width: 33px;
+    height: 33px;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    background: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    color: white;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &:hover {
+        background: rgba(25, 25, 25, 0.9);
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    &.playing {
+        .sound-ring {
+            opacity: 1;
+            animation: rotate-ring 4s linear infinite;
+
+            &::before {
+                animation: pulse-dot 2s ease-in-out infinite;
+            }
+        }
+    }
+}
+
+.sound-ring {
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 4px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 6px;
+        height: 6px;
+        background: white;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+}
+
+.sound-icon {
+    position: relative;
+    z-index: 2;
+    width: 14px;
+    height: 14px;
+    opacity: 0.2;
+    /* Subtle icon presence */
+    transition: opacity 0.3s ease;
+}
+
+.sound-toggle:hover .sound-icon {
+    opacity: 0.8;
+}
+
+@keyframes rotate-ring {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse-dot {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
