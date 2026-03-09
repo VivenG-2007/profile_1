@@ -79,3 +79,4 @@ Designed with ❤️ for high-end digital experiences.
 Feel free to use and modify for your own personal portfolio.
 "# profile_1" 
 "# profile" 
+"# profile_1" 
