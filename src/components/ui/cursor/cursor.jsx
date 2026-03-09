@@ -11,18 +11,15 @@ const Cursor = () => {
   useEffect(() => {
     if (!dotRef.current || !glowRef.current) return;
 
-    // Hide cursor initially
     gsap.set([dotRef.current, glowRef.current], {
       opacity: 0,
       xPercent: -50,
       yPercent: -50,
     });
 
-    // Faster for dot
     const moveDotX = gsap.quickTo(dotRef.current, "x", { duration: 0.1, ease: "power3.out" });
     const moveDotY = gsap.quickTo(dotRef.current, "y", { duration: 0.1, ease: "power3.out" });
 
-    // Slower for glow (trailing effect)
     const moveGlowX = gsap.quickTo(glowRef.current, "x", { duration: 0.4, ease: "power3.out" });
     const moveGlowY = gsap.quickTo(glowRef.current, "y", { duration: 0.4, ease: "power3.out" });
 
@@ -30,7 +27,6 @@ const Cursor = () => {
       const { clientX, clientY } = e;
 
       if (!initialized.current) {
-        // Set initial position immediately on first move
         gsap.set([dotRef.current, glowRef.current], { x: clientX, y: clientY, opacity: 1 });
         initialized.current = true;
       }
