@@ -71,4 +71,4 @@ A high-performance, immersive portfolio experience featuring a real-time 2D canv
 | **Bottom Right Toggle** | Manual Play/Pause control with visual feedback. |
 | **Hover Toggle** | Expands icon and triggers subtle glow effects. |
 
-checking n8n workflows check not wokring
+checking n8n workflows check
