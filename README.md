@@ -72,3 +72,4 @@ A high-performance, immersive portfolio experience featuring a real-time 2D canv
 | **Hover Toggle** | Expands icon and triggers subtle glow effects. |
 
 checking n8n workflows
+is wokring ig
