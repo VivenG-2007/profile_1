@@ -72,5 +72,3 @@ A high-performance, immersive portfolio experience featuring a real-time 2D canv
 | **Hover Toggle** | Expands icon and triggers subtle glow effects. |
 
 ---
-n8n is working
- ussssh
