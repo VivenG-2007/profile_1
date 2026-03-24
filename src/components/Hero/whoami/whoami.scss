@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* ─────────────────────────────────────────
+   Variables
+───────────────────────────────────────── */
+$accent:    #a78bfa;
+$accent-2:  #38bdf8;
+$fg:        #ffffff;
+$fg-dim:    rgba(255, 255, 255, 0.6);
+$fg-muted:  rgba(255, 255, 255, 0.28);
+$border:    rgba(255, 255, 255, 0.08);
+
+/* ─────────────────────────────────────────
+   Section
+───────────────────────────────────────── */
+.whoami-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 100vh;          /* push below fixed hero */
+  padding: 120px 60px 140px;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  color: $fg;
+  z-index: 20;
+
+  /* full dark overlay so stars don't bleed through */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.92) 0%,
+      rgba(5, 5, 15, 0.97) 40%,
+      rgba(5, 5, 15, 1) 100%
+    );
+    z-index: 0;
+  }
+}
+
+/* ─────────────────────────────────────────
+   Subtle vertical grid lines
+───────────────────────────────────────── */
+.whoami-grid-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  span {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: $border;
+    &:nth-child(1) { left: 25%; }
+    &:nth-child(2) { left: 50%; }
+    &:nth-child(3) { left: 75%; }
+  }
+}
+
+/* ─────────────────────────────────────────
+   Inner layout
+───────────────────────────────────────── */
+.whoami-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ─────────────────────────────────────────
+   LEFT column
+───────────────────────────────────────── */
+.whoami-left {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* — Badge — */
+.whoami-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $accent;
+  width: fit-content;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: $accent;
+    opacity: 0.7;
+  }
+}
+
+/* — Heading — */
+.whoami-heading {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.whoami-heading-line {
+  display: block;
+  font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: $fg;
+}
+
+.whoami-heading-sub {
+  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+  font-weight: 400;
+  color: $fg-muted;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+
+.whoami-name-highlight {
+  background: linear-gradient(120deg, $accent 20%, $accent-2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* — Description — */
+.whoami-desc {
+  font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+  line-height: 1.8;
+  color: $fg-dim;
+  margin: 0;
+  max-width: 500px;
+  border-left: 2px solid rgba(167, 139, 250, 0.3);
+  padding-left: 20px;
+}
+
+/* — Tags — */
+.whoami-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.whoami-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 7px 18px;
+  border: 1px solid $border;
+  border-radius: 100px;
+  color: $fg-muted;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(6px);
+  transition: border-color 0.3s, color 0.3s, box-shadow 0.3s;
+  cursor: default;
+
+  &:hover {
+    border-color: rgba(167, 139, 250, 0.5);
+    color: $accent;
+    box-shadow: 0 0 20px rgba(167, 139, 250, 0.15);
+  }
+}
+
+/* — Stats — */
+.whoami-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid $border;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(8px);
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 24px 16px;
+  border-right: 1px solid $border;
+  transition: background 0.3s;
+
+  &:last-child { border-right: none; }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.04);
+  }
+}
+
+.stat-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(135deg, $fg, rgba(255,255,255,0.5));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $fg-muted;
+  text-align: center;
+}
+
+/* ─────────────────────────────────────────
+   RIGHT column
+───────────────────────────────────────── */
+.whoami-right {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+}
+
+/* — Skills card — */
+.whoami-skills-card {
+  border: 1px solid $border;
+  border-radius: 20px;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+
+  /* top-left accent corner */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 60px; height: 60px;
+    border-top: 1px solid rgba(167, 139, 250, 0.4);
+    border-left: 1px solid rgba(167, 139, 250, 0.4);
+    border-radius: 20px 0 0 0;
+    pointer-events: none;
+  }
+}
+
+.skills-heading {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $fg-muted;
+  margin: 0 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: $border;
+  }
+}
+
+.whoami-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.skill-row {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.skill-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: $fg-dim;
+}
+
+.skill-pct {
+  font-size: 0.68rem;
+  color: $fg-muted;
+  font-feature-settings: 'tnum';
+}
+
+.skill-bar {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  overflow: visible;
+  position: relative;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, $accent, $accent-2);
+  box-shadow: 0 0 8px rgba(167, 139, 250, 0.45);
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $accent-2;
+    box-shadow: 0 0 10px $accent-2;
+  }
+}
+
+/* — Glow orb — */
+.whoami-orb {
+  position: absolute;
+  top: 40%;
+  right: -120px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(167, 139, 250, 0.1) 0%,
+    transparent 70%
+  );
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─────────────────────────────────────────
+   Responsive
+───────────────────────────────────────── */
+@media (max-width: 960px) {
+  .whoami-section {
+    padding: 100px 40px 120px;
+  }
+  .whoami-container {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+}
+
+@media (max-width: 580px) {
+  .whoami-section {
+    padding: 80px 24px 100px;
+  }
+  .whoami-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .stat-card {
+    padding: 18px 10px;
+  }
+}
