@@ -11,14 +11,14 @@ $fg-muted:  rgba(255, 255, 255, 0.28);
 $border:    rgba(255, 255, 255, 0.08);
 
 /* ─────────────────────────────────────────
-   Section
+   Section  — mobile base
 ───────────────────────────────────────── */
 .whoami-section {
   position: relative;
   width: 100%;
   min-height: 100vh;
   margin-top: 100vh;          /* push below fixed hero */
-  padding: 120px 60px 140px;
+  padding: 80px 20px 100px;  /* mobile: tighter horizontal + vertical */
   box-sizing: border-box;
   overflow: hidden;
   font-family: 'Inter', sans-serif;
@@ -37,6 +37,14 @@ $border:    rgba(255, 255, 255, 0.08);
       rgba(5, 5, 15, 1) 100%
     );
     z-index: 0;
+  }
+
+  @media (min-width: 580px) {
+    padding: 100px 40px 120px;
+  }
+
+  @media (min-width: 960px) {
+    padding: 120px 60px 140px;
   }
 }
 
@@ -62,7 +70,7 @@ $border:    rgba(255, 255, 255, 0.08);
 }
 
 /* ─────────────────────────────────────────
-   Inner layout
+   Inner layout  — mobile: single column
 ───────────────────────────────────────── */
 .whoami-container {
   position: relative;
@@ -70,9 +78,14 @@ $border:    rgba(255, 255, 255, 0.08);
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 80px;
+  grid-template-columns: 1fr;   /* mobile: stack */
+  gap: 48px;
   align-items: start;
+
+  @media (min-width: 960px) {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
+  }
 }
 
 /* ─────────────────────────────────────────
@@ -81,7 +94,11 @@ $border:    rgba(255, 255, 255, 0.08);
 .whoami-left {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 28px;
+
+  @media (min-width: 580px) {
+    gap: 32px;
+  }
 }
 
 /* — Badge — */
@@ -117,7 +134,7 @@ $border:    rgba(255, 255, 255, 0.08);
 
 .whoami-heading-line {
   display: block;
-  font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+  font-size: clamp(2.2rem, 8vw, 3.8rem);
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: -0.02em;
@@ -125,7 +142,7 @@ $border:    rgba(255, 255, 255, 0.08);
 }
 
 .whoami-heading-sub {
-  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+  font-size: clamp(0.9rem, 3.5vw, 1.2rem);
   font-weight: 400;
   color: $fg-muted;
   letter-spacing: 0.01em;
@@ -141,28 +158,37 @@ $border:    rgba(255, 255, 255, 0.08);
 
 /* — Description — */
 .whoami-desc {
-  font-size: clamp(0.92rem, 1.2vw, 1.05rem);
+  font-size: clamp(0.88rem, 3.5vw, 1.05rem);
   line-height: 1.8;
   color: $fg-dim;
   margin: 0;
-  max-width: 500px;
+  max-width: 100%;          /* mobile: full width */
   border-left: 2px solid rgba(167, 139, 250, 0.3);
-  padding-left: 20px;
+  padding-left: 16px;
+
+  @media (min-width: 580px) {
+    max-width: 500px;
+    padding-left: 20px;
+  }
 }
 
 /* — Tags — */
 .whoami-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
+
+  @media (min-width: 580px) {
+    gap: 10px;
+  }
 }
 
 .whoami-tag {
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  padding: 7px 18px;
+  padding: 6px 14px;
   border: 1px solid $border;
   border-radius: 100px;
   color: $fg-muted;
@@ -170,6 +196,12 @@ $border:    rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(6px);
   transition: border-color 0.3s, color 0.3s, box-shadow 0.3s;
   cursor: default;
+
+  @media (min-width: 580px) {
+    font-size: 0.62rem;
+    padding: 7px 18px;
+    letter-spacing: 0.2em;
+  }
 
   &:hover {
     border-color: rgba(167, 139, 250, 0.5);
@@ -184,18 +216,22 @@ $border:    rgba(255, 255, 255, 0.08);
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
   border: 1px solid $border;
-  border-radius: 16px;
+  border-radius: 14px;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(8px);
+
+  @media (min-width: 580px) {
+    border-radius: 16px;
+  }
 }
 
 .stat-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  padding: 24px 16px;
+  gap: 4px;
+  padding: 16px 10px;          /* mobile: compact */
   border-right: 1px solid $border;
   transition: background 0.3s;
 
@@ -204,11 +240,16 @@ $border:    rgba(255, 255, 255, 0.08);
   &:hover {
     background: rgba(255, 255, 255, 0.04);
   }
+
+  @media (min-width: 580px) {
+    gap: 6px;
+    padding: 24px 16px;
+  }
 }
 
 .stat-value {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-size: clamp(1.4rem, 5vw, 2.4rem);
   font-weight: 700;
   line-height: 1;
   background: linear-gradient(135deg, $fg, rgba(255,255,255,0.5));
@@ -218,12 +259,17 @@ $border:    rgba(255, 255, 255, 0.08);
 }
 
 .stat-label {
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: $fg-muted;
   text-align: center;
+
+  @media (min-width: 580px) {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+  }
 }
 
 /* ─────────────────────────────────────────
@@ -232,20 +278,29 @@ $border:    rgba(255, 255, 255, 0.08);
 .whoami-right {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 28px;
   position: relative;
+
+  @media (min-width: 580px) {
+    gap: 32px;
+  }
 }
 
 /* — Skills card — */
 .whoami-skills-card {
   border: 1px solid $border;
-  border-radius: 20px;
-  padding: 32px;
+  border-radius: 16px;
+  padding: 24px 20px;           /* mobile: tighter */
   background: rgba(255, 255, 255, 0.025);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   position: relative;
   overflow: hidden;
+
+  @media (min-width: 580px) {
+    border-radius: 20px;
+    padding: 32px;
+  }
 
   /* top-left accent corner */
   &::before {
@@ -266,10 +321,14 @@ $border:    rgba(255, 255, 255, 0.08);
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: $fg-muted;
-  margin: 0 0 24px;
+  margin: 0 0 20px;
   display: flex;
   align-items: center;
   gap: 10px;
+
+  @media (min-width: 580px) {
+    margin-bottom: 24px;
+  }
 
   &::after {
     content: '';
@@ -282,7 +341,11 @@ $border:    rgba(255, 255, 255, 0.08);
 .whoami-skills {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
+
+  @media (min-width: 580px) {
+    gap: 18px;
+  }
 }
 
 .skill-row {
@@ -298,9 +361,13 @@ $border:    rgba(255, 255, 255, 0.08);
 }
 
 .skill-label {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 600;
   color: $fg-dim;
+
+  @media (min-width: 580px) {
+    font-size: 0.78rem;
+  }
 }
 
 .skill-pct {
@@ -344,8 +411,8 @@ $border:    rgba(255, 255, 255, 0.08);
   position: absolute;
   top: 40%;
   right: -120px;
-  width: 320px;
-  height: 320px;
+  width: 220px;            /* smaller on mobile */
+  height: 220px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
@@ -355,29 +422,9 @@ $border:    rgba(255, 255, 255, 0.08);
   filter: blur(50px);
   pointer-events: none;
   z-index: 0;
-}
 
-/* ─────────────────────────────────────────
-   Responsive
-───────────────────────────────────────── */
-@media (max-width: 960px) {
-  .whoami-section {
-    padding: 100px 40px 120px;
-  }
-  .whoami-container {
-    grid-template-columns: 1fr;
-    gap: 56px;
-  }
-}
-
-@media (max-width: 580px) {
-  .whoami-section {
-    padding: 80px 24px 100px;
-  }
-  .whoami-stats {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .stat-card {
-    padding: 18px 10px;
+  @media (min-width: 960px) {
+    width: 320px;
+    height: 320px;
   }
 }

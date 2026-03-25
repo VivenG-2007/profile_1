@@ -9,10 +9,15 @@
     justify-content: center;
     color: #ffffff;
     font-family: 'Inter', sans-serif;
-    z-index: 9999;
+    z-index: 10;
     pointer-events: none;
     user-select: none;
     background: transparent;
+    padding: 0 20px;          /* mobile: comfortable side padding */
+
+    @media (min-width: 480px) {
+        padding: 0 40px;
+    }
 }
 
 .hero-content {
@@ -21,33 +26,43 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    padding: 0 40px;
     pointer-events: auto;
 }
 
 .hero-name {
-    font-size: clamp(4rem, 10vw, 8rem);
+    font-size: clamp(2.8rem, 12vw, 8rem);   /* mobile: smaller floor */
     font-weight: 900;
     margin-bottom: 5px;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.02em;                  /* mobile: less tight tracking */
     text-transform: uppercase;
     line-height: normal;
     color: #ffffff;
     text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+
+    @media (min-width: 480px) {
+        letter-spacing: -0.01em;
+    }
 }
 
 .hero-tagline {
-    font-size: clamp(0.9rem, 1.5vw, 1.4rem);
+    font-size: clamp(0.7rem, 3vw, 1.4rem);
     color: rgba(255, 255, 255, 0.9);
-    letter-spacing: 0.5em;
+    letter-spacing: 0.15em;                  /* mobile: less spacing */
     text-transform: uppercase;
     margin-top: 10px;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 280px;
+
+    @media (min-width: 480px) {
+        letter-spacing: 0.5em;
+        max-width: none;
+    }
 }
 
 .scroll-indicator {
     position: absolute;
-    bottom: 50px;
+    bottom: 20px;              /* mobile: less from edge */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -55,31 +70,48 @@
     align-items: center;
     gap: 16px;
     color: #ffffff;
-    font-size: 0.85rem;
+    font-size: 0.7rem;         /* mobile: smaller text */
     font-weight: 600;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     z-index: 100;
     pointer-events: auto;
 
+    @media (min-width: 480px) {
+        bottom: 50px;
+        font-size: 0.85rem;
+        letter-spacing: 0.15em;
+    }
+
     .scroll-icon {
-        width: 26px;
-        height: 42px;
+        width: 22px;           /* mobile: slightly smaller mouse */
+        height: 36px;
         border: 2px solid #ffffff;
         border-radius: 20px;
         position: relative;
 
+        @media (min-width: 480px) {
+            width: 26px;
+            height: 42px;
+        }
+
         &::before {
             content: "";
             position: absolute;
-            top: 7px;
+            top: 6px;
             left: 50%;
-            width: 6px;
-            height: 6px;
+            width: 5px;
+            height: 5px;
             background: #ffffff;
             border-radius: 50%;
             transform: translateX(-50%);
             animation: scrollWheel 2s ease-in-out infinite;
+
+            @media (min-width: 480px) {
+                width: 6px;
+                height: 6px;
+                top: 7px;
+            }
         }
     }
 }
@@ -103,26 +135,5 @@
     100% {
         opacity: 0;
         transform: translate(-50%, 18px);
-    }
-}
-
-@media (max-width: 480px) {
-    .hero {
-        padding: 0 20px;
-    }
-
-    .hero-name {
-        letter-spacing: 0.02em;
-    }
-
-    .hero-tagline {
-        letter-spacing: 0.15em;
-        text-align: center;
-        max-width: 280px;
-    }
-
-    .scroll-indicator {
-        bottom: 20px;
-        font-size: 0.7rem;
     }
 }
