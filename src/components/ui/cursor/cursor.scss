@@ -25,22 +25,9 @@
     opacity: 0.9;
 }
 
-@media (min-width: 600px) {
-    .cursor-dot {
-        opacity: 0;
-    }
-
+@media (max-width: 768px) {
+    .cursor-dot,
     .cursor-glow {
-        opacity: 0;
-    }
-}
-
-@media (min-width: 1024px) {
-    .cursor-dot {
-        opacity: 0;
-    }
-
-    .cursor-glow {
-        opacity: 0;
+        display: none !important;
     }
 }
