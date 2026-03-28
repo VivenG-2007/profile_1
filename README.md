@@ -70,4 +70,6 @@ A high-performance, immersive portfolio experience featuring a real-time 2D canv
 | **Click/Any Key** | Unmutes audio instantly. |
 | **Bottom Right Toggle** | Manual Play/Pause control with visual feedback. |
 | **Hover Toggle** | Expands icon and triggers subtle glow effects. |
+
+
 made with love by viven
