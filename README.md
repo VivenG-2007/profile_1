@@ -72,4 +72,3 @@ A high-performance, immersive portfolio experience featuring a real-time 2D canv
 | **Hover Toggle** | Expands icon and triggers subtle glow effects. |
 
 
-made with love by viven
