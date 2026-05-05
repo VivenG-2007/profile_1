@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* ── Skills Section — all classes prefixed sk- to avoid whoami conflicts ── */
+$accent:   #a78bfa;
+$accent-2: #38bdf8;
+$fg:       #ffffff;
+$border:   rgba(255, 255, 255, 0.08);
+
+.sk-section {
+  position: relative;
+  min-height: 80vh;
+  padding: 120px 24px 80px;
+  background: #05050f;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+
+  @media (min-width: 768px) { padding: 140px 48px 100px; }
+}
+
+.sk-bg-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  span {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.025);
+
+    &:nth-child(1) { left: 25%; }
+    &:nth-child(2) { left: 50%; }
+    &:nth-child(3) { left: 75%; }
+  }
+}
+
+.sk-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sk-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $accent;
+  margin-bottom: 20px;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: $accent;
+    opacity: 0.7;
+  }
+}
+
+.sk-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: $fg;
+  margin: 0 0 64px;
+  line-height: 1.1;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.sk-highlight {
+  background: linear-gradient(120deg, $accent 20%, $accent-2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sk-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  @media (min-width: 600px) { grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 900px) { grid-template-columns: repeat(3, 1fr); }
+}
+
+.sk-cat-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid $border;
+  border-radius: 18px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* Top-left accent corner — same as whoami card */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 44px;
+    height: 44px;
+    border-top: 1px solid rgba(167, 139, 250, 0.35);
+    border-left: 1px solid rgba(167, 139, 250, 0.35);
+    border-radius: 18px 0 0 0;
+    pointer-events: none;
+  }
+
+  &:hover {
+    border-color: rgba(167, 139, 250, 0.3);
+    transform: translateY(-4px);
+  }
+}
+
+.sk-cat-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid $border;
+}
+
+.sk-cat-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(167, 139, 250, 0.08);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 10px;
+}
+
+.sk-cat-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: $fg;
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.sk-pills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 30px; /* ensure visible even if pills are slow to render */
+}
+
+.sk-pill {
+  display: inline-block;
+  padding: 5px 13px;
+  border-radius: 100px;
+  background: rgba(167, 139, 250, 0.08);
+  border: 1px solid rgba(167, 139, 250, 0.22);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  cursor: default;
+  transition: all 0.22s ease;
+  font-family: 'Inter', sans-serif;
+
+  &:hover {
+    background: rgba(167, 139, 250, 0.18);
+    border-color: rgba(167, 139, 250, 0.5);
+    color: $accent;
+    transform: translateY(-1px);
+  }
+}

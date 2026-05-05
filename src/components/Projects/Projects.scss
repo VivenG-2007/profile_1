@@ -1,0 +1,215 @@
+/* ── Projects Section ── */
+$accent: #a78bfa;
+$accent-2: #38bdf8;
+
+.projects-section {
+  position: relative;
+  min-height: 100vh;
+  padding: 120px 24px 80px;
+  background: #05050f;
+  overflow: hidden;
+
+  @media (min-width: 768px) { padding: 140px 48px 100px; }
+}
+
+.projects-grid-lines {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  pointer-events: none;
+
+  span {
+    border-right: 1px solid rgba(255,255,255,0.025);
+    &:last-child { border-right: none; }
+  }
+}
+
+.projects-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.projects-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border: 1px solid rgba($accent, 0.3);
+  border-radius: 100px;
+  color: $accent;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  background: rgba($accent, 0.06);
+}
+
+.projects-heading {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 64px;
+  line-height: 1.1;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.projects-highlight {
+  background: linear-gradient(120deg, $accent 20%, $accent-2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+
+  @media (min-width: 640px) { grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 1024px) { grid-template-columns: repeat(2, 1fr); }
+}
+
+.project-card {
+  position: relative;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.3s ease;
+  cursor: default;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: rgba($accent, 0.3);
+
+    .project-card-glow {
+      opacity: 1;
+    }
+    .project-folder-icon {
+      color: $accent;
+    }
+  }
+
+  &.featured {
+    border-color: rgba($accent, 0.12);
+  }
+}
+
+.project-card-inner {
+  padding: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.project-card-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba($accent, 0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.project-folder-icon {
+  color: rgba(255,255,255,0.4);
+  transition: color 0.3s ease;
+  display: flex;
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+}
+
+.project-link-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba($accent, 0.12);
+    border-color: rgba($accent, 0.4);
+    color: $accent;
+    transform: translateY(-2px);
+  }
+}
+
+.project-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 10px;
+}
+
+.project-desc {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba($accent, 0.25);
+  color: rgba($accent, 0.85);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  background: rgba($accent, 0.05);
+}
+
+/* CTA */
+.projects-cta {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.view-all-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+
+  &:hover {
+    background: rgba($accent, 0.1);
+    border-color: rgba($accent, 0.4);
+    color: $accent;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba($accent, 0.15);
+  }
+}

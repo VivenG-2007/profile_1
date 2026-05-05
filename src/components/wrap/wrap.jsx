@@ -56,13 +56,21 @@ export default function WrapSpeed() {
 
     const toggleSound = () => {
         const audio = audioRef.current;
-        if (!audio) return;
+        if (!audio) {
+            console.warn("Audio object not initialized");
+            return;
+        }
 
-        audio.muted = false;
+        console.log("Toggle sound clicked. Current state: paused =", audio.paused, "muted =", audio.muted);
+
         if (audio.paused) {
-            audio.play().catch(() => { });
+            audio.muted = false;
+            audio.play()
+                .then(() => console.log("Audio started playing"))
+                .catch(err => console.error("Audio play failed:", err));
         } else {
             audio.pause();
+            console.log("Audio paused");
         }
     };
 
