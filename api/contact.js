@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // MongoDB Connection
-const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://25r11a05cm_db_user:YHSqwGQEDLc8MyVN@cluster0.jsll5ao.mongodb.net/';
+const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://25r11a05cm_db_user:YHSqwGQEDLc8MyVN@cluster0.jsll5ao.mongodb.net/portfolio?retryWrites=true&w=majority';
 
 let isConnected = false;
 
@@ -47,7 +47,7 @@ const contactSchema = new mongoose.Schema({
 // Create Model
 const Contact = mongoose.models.Contact || mongoose.model('Contact', contactSchema);
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Credentials', true);
   res.setHeader('Access-Control-Allow-Origin', '*');
