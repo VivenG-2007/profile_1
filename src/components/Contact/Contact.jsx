@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./Contact.scss";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -10,6 +10,7 @@ const Contact = () => {
   const sectionRef = useRef(null);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState(null); // 'sending' | 'sent' | 'error'
+
 
   useGSAP(() => {
     gsap.from(".contact-badge", { opacity: 0, y: 18, duration: 0.5, ease: "power3.out",
@@ -36,12 +37,12 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus("sending");
-    
+
     try {
-      const apiUrl = import.meta.env.DEV 
-        ? 'http://localhost:5000/api/contact' 
+      const apiUrl = import.meta.env.DEV
+        ? 'http://localhost:5000/api/contact'
         : '/api/contact';
-      
+
       const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
@@ -132,11 +133,10 @@ const Contact = () => {
           </div>
 
           {/* Right — Form */}
-          <form className="contact-form" onSubmit={handleSubmit} action="" aria-label="Contact form">
+          <form className="contact-form" onSubmit={handleSubmit} action="" method="post" aria-label="Contact form">
             <div className="form-group">
-              <label htmlFor="contact-name">Name</label>
+              <label>Name</label>
               <input
-                id="contact-name"
                 type="text"
                 name="name"
                 placeholder="Your name"
@@ -147,9 +147,8 @@ const Contact = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="contact-email">Email</label>
+              <label>Email</label>
               <input
-                id="contact-email"
                 type="email"
                 name="email"
                 placeholder="your@email.com"
@@ -160,9 +159,8 @@ const Contact = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="contact-message">Message</label>
+              <label>Message</label>
               <textarea
-                id="contact-message"
                 name="message"
                 placeholder="What's on your mind?"
                 value={form.message}

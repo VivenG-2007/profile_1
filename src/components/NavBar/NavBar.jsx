@@ -41,6 +41,12 @@ const NavBar = () => {
 
     const goTo = (id) => (e) => {
         e.preventDefault();
+        
+        // Don't navigate if clicking on form inputs
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'LABEL') {
+            return;
+        }
+        
         const el = id === "home" ? 0 : document.getElementById(id);
 
         if (open) {
