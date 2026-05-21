@@ -25,14 +25,6 @@ export const timeline = [
   },
   {
     year: "2025",
-    title: "Hackathon Winner",
-    description:
-      "Led a team to build a production-hardened platform — optimized with TypeScript and real-time features.",
-    icon: "🏆",
-    type: "achievement",
-  },
-  {
-    year: "2025",
     title: "AI & GSAP Mastery",
     description:
       "Integrated Groq AI, Gemini, and GSAP animations into production-grade projects.",
