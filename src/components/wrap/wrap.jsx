@@ -61,6 +61,11 @@ export default function WrapSpeed() {
         const stars = Array.from({ length: STAR_COUNT }, () => new Star());
 
         const onKeyDown = (e) => {
+            // Don't capture keyboard events if user is typing in a form input
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                return;
+            }
+
             const code = e.keyCode || e.which;
 
             switch (code) {

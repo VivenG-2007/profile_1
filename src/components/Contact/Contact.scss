@@ -151,6 +151,7 @@ $accent-2: #38bdf8;
   display: flex;
   flex-direction: column;
   gap: 18px;
+  pointer-events: auto;
 }
 
 .form-group {
@@ -176,6 +177,7 @@ $accent-2: #38bdf8;
     font-family: inherit;
     resize: vertical;
     transition: border-color 0.25s ease, background 0.25s ease;
+    pointer-events: auto;
 
     &::placeholder { color: rgba(255,255,255,0.25); }
 
