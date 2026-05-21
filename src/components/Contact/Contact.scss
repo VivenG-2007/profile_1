@@ -12,6 +12,10 @@ $accent-2: #38bdf8;
   @media (min-width: 768px) { padding: 140px 48px 80px; }
 }
 
+.contact-section * {
+  scroll-behavior: auto !important;
+}
+
 .contact-grid-lines {
   position: absolute;
   inset: 0;

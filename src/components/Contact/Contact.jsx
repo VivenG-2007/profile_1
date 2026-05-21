@@ -24,6 +24,9 @@ const Contact = () => {
     gsap.from(".contact-info-item", { opacity: 0, x: -30, stagger: 0.1, duration: 0.6, ease: "power2.out",
       scrollTrigger: { trigger: ".contact-card", start: "top 75%", once: true }, delay: 0.2
     });
+    gsap.from(".contact-form", { opacity: 0, y: 30, duration: 0.6, ease: "power3.out",
+      scrollTrigger: { trigger: ".contact-card", start: "top 75%", once: true }, delay: 0.3
+    });
   }, { scope: sectionRef });
 
   const handleChange = (e) => {
