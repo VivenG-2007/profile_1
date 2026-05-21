@@ -132,7 +132,7 @@ const Contact = () => {
           </div>
 
           {/* Right — Form */}
-          <form className="contact-form" onSubmit={handleSubmit} aria-label="Contact form">
+          <form className="contact-form" onSubmit={handleSubmit} action="" aria-label="Contact form">
             <div className="form-group">
               <label htmlFor="contact-name">Name</label>
               <input
