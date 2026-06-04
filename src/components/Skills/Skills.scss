@@ -13,6 +13,7 @@ $border:   rgba(255, 255, 255, 0.08);
   background: #05050f;
   overflow: hidden;
   font-family: 'Inter', sans-serif;
+  z-index: 20;
 
   @media (min-width: 768px) { padding: 140px 48px 100px; }
 }

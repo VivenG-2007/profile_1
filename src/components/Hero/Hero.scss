@@ -26,7 +26,7 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    pointer-events: auto;
+    pointer-events: none;
 }
 
 .hero-name {
@@ -75,7 +75,7 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     z-index: 100;
-    pointer-events: auto;
+    pointer-events: none;
 
     @media (min-width: 480px) {
         bottom: 50px;
