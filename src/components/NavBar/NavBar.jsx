@@ -41,12 +41,12 @@ const NavBar = () => {
 
     const goTo = (id) => (e) => {
         e.preventDefault();
-        
+
         // Don't navigate if clicking on form inputs
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'LABEL') {
             return;
         }
-        
+
         const el = id === "home" ? 0 : document.getElementById(id);
 
         if (open) {
@@ -92,7 +92,7 @@ const NavBar = () => {
                 </ul>
 
                 <div className="nav-right-actions">
-                    <a href="/assets/files/cv.pdf" className="download-btn" download="cv.pdf">
+                    <a href="https://drive.google.com/file/d/1UoitKQPoZyD2lWRpN_YVPwsvPAIBO2nw/view?usp=sharing" className="download-btn" download="cv.pdf">
                         RESUME
                     </a>
 
