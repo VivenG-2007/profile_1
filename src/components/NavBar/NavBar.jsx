@@ -92,7 +92,7 @@ const NavBar = () => {
                 </ul>
 
                 <div className="nav-right-actions">
-                    <a href="https://drive.google.com/file/d/1UoitKQPoZyD2lWRpN_YVPwsvPAIBO2nw/view?usp=sharing" className="download-btn" download="cv.pdf">
+                    <a href="https://drive.google.com/file/d/1UoitKQPoZyD2lWRpN_YVPwsvPAIBO2nw/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="download-btn" download="cv.pdf">
                         RESUME
                     </a>
 
