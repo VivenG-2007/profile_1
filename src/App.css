@@ -3,3 +3,7 @@
 * {
   user-select: none;
 }
+
+input, textarea {
+  user-select: text;
+}

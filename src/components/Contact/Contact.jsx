@@ -135,8 +135,9 @@ const Contact = () => {
           {/* Right — Form */}
           <form className="contact-form" onSubmit={handleSubmit} action="" method="post" aria-label="Contact form">
             <div className="form-group">
-              <label>Name</label>
+              <label htmlFor="contact-name">Name</label>
               <input
+                id="contact-name"
                 type="text"
                 name="name"
                 placeholder="Your name"
@@ -147,8 +148,9 @@ const Contact = () => {
               />
             </div>
             <div className="form-group">
-              <label>Email</label>
+              <label htmlFor="contact-email">Email</label>
               <input
+                id="contact-email"
                 type="email"
                 name="email"
                 placeholder="your@email.com"
@@ -159,8 +161,9 @@ const Contact = () => {
               />
             </div>
             <div className="form-group">
-              <label>Message</label>
+              <label htmlFor="contact-message">Message</label>
               <textarea
+                id="contact-message"
                 name="message"
                 placeholder="What's on your mind?"
                 value={form.message}
