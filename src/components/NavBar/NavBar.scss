@@ -12,7 +12,8 @@
     z-index: 1000;
     pointer-events: none;
 
-    * {
+    .navbar-wrapper,
+    .nav-panel {
         pointer-events: auto;
     }
 
@@ -241,7 +242,6 @@
     }
 }
 
-/* Mobile slide-down panel */
 .nav-panel {
     position: absolute;
     top: 80px;
@@ -258,11 +258,13 @@
     gap: 10px;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
     z-index: 999;
+    overflow: hidden;
 
     @media (min-width: 900px) {
         top: 92px;
         padding: 24px;
         gap: 12px;
+        display: none;
     }
 }
 

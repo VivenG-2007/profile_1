@@ -58,7 +58,7 @@ const Cursor = () => {
     // Hover effect for interactive elements
     const handleOver = (e) => {
       if (e.target.closest('button, a, .clickable')) {
-        gsap.to(dotRef.current, { scale: 2, backgroundColor: '#f1811f', duration: 0.3 });
+        gsap.to(dotRef.current, { scale: 2, backgroundColor: '#a78bfa', duration: 0.3 });
         gsap.to(glowRef.current, { scale: 1.5, opacity: 1, duration: 0.3 });
       }
     };
