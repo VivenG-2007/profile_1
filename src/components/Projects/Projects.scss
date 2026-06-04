@@ -15,13 +15,19 @@ $accent-2: #38bdf8;
 .projects-grid-lines {
   position: absolute;
   inset: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
   pointer-events: none;
+  z-index: 1;
 
   span {
-    border-right: 1px solid rgba(255,255,255,0.025);
-    &:last-child { border-right: none; }
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.03);
+
+    &:nth-child(1) { left: 25%; }
+    &:nth-child(2) { left: 50%; }
+    &:nth-child(3) { left: 75%; }
   }
 }
 
